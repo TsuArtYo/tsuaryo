@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+	flex-wrap: wrap;
+    justify-content: center;
+	align-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 1920px;
+    margin: 0 auto;
+	background-color: #fff;
+	overflow-x: hidden;
+}
+
+p {
+	font-family: Arial, sans-serif;
+	font-size: 28px;
+	line-height: 1.5;
+	text-align: center;
+	flex-basis: 100%;
+	margin: 35px 0;
+}
+
+a {
+	display: block;
+	color: #1b619b;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+/* Cube Positioning */
+
+.cube-wrapper {
+	perspective: 2000px;
+}
+
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-40deg);
+    animation: rotateCube 5s linear infinite;
+	margin: 100px 120px 80px;
+}
+
+.cube-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cube-front {
+    transform: translateZ(100px);
+}
+
+.cube-back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube-bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.cube-top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube-left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube-right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+/* Gradient Patterns */
+
+.tartan-cube .cube-face {
+	background-color: #3276ad;
+	background-image:
+		repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+		repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+		repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
+}
+
+.carbon-fibre-cube .cube-face {
+	background:
+		linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+		linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+		linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+		linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+		linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+		linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+	background-color: #131313;
+	background-size: 20px 20px;
+}
+
+.pyramid-cube .cube-face {
+	background:
+		linear-gradient(315deg, transparent 75%, #d45d55 0)-10px 0,
+		linear-gradient(45deg, transparent 75%, #d45d55 0)-10px 0,
+		linear-gradient(135deg, #a7332b 50%, transparent 0) 0 0,
+		linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
+    background-size: 20px 20px;
+}
+
+.upholstery-cube .cube-face {
+	background:
+		radial-gradient(#890000 4%, #5b0000 9%, rgba(102, 0, 0, 0) 9%) 0 0,
+		radial-gradient(#890000 4%, #5b0000 8%, rgba(102, 0, 0, 0) 10%) 50px 50px,
+		radial-gradient(rgba(153, 0, 0, 0.8) 20%, rgba(102, 0, 0, 0)) 50px 0,
+		radial-gradient(rgba(153, 0, 0, 0.8) 20%, rgba(102, 0, 0, 0)) 0 50px,
+		radial-gradient(#660000 35%, rgba(102, 0, 0, 0) 60%) 50px 0,
+		radial-gradient(#660000 35%, rgba(102, 0, 0, 0) 60%) 100px 50px,
+		radial-gradient(rgba(76, 0, 0, 0.7), rgba(102, 0, 0, 0)) 0 0,
+		radial-gradient(rgba(76, 0, 0, 0.7), #660000) 50px 50px,
+		linear-gradient(45deg, rgba(102, 0, 0, 0) 49%, #000000 50%, rgba(102, 0, 0, 0) 70%) 0 0,
+		linear-gradient(-45deg, rgba(102, 0, 0, 0) 49%, #000000 50%, rgba(102, 0, 0, 0) 70%) 0 0;
+	background-color: #300;
+	background-size: 100px 100px;
+}
+
+.weave-cube .cube-face {
+	background:
+		linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+		linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),
+		linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+    background-size: 25px 25px;
+}
+
+.tablecloth-cube .cube-face {
+	background-color:#fff;
+	background-image:
+		linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%),
+		linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-size:50px 50px;
+}
+
+.scales-cube .cube-face {
+	background:
+		radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+		radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#8a3;
+	background-size: 20px 20px;
+}
+
+.polka-cube .cube-face {
+	background-color:rgb(12, 12, 48);
+	background-image:
+		radial-gradient(#fff 15%, transparent 16%),
+		radial-gradient(#fff 15%, transparent 16%);
+	background-size:50px 50px;
+	background-position: 0 0, 25px 25px;
+}
+
+.cross-cube .cube-face {
+	background:
+		radial-gradient(circle, transparent 20%, #708090 20%, #708090 80%, transparent 80%, transparent),
+		radial-gradient(circle, transparent 20%, #708090 20%, #708090 80%, transparent 80%, transparent) 50px 50px,
+		linear-gradient(#a8b1bb 8px, transparent 8px) 0 -4px,
+		linear-gradient(90deg, #a8b1bb 8px, transparent 8px) -4px 0;
+	background-color: #708090;
+	background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px;
+}
+
+.stars-cube .cube-face {
+	background:
+		linear-gradient(324deg, #232927 4%, transparent 4%) -70px 43px,
+		linear-gradient( 36deg, #232927 4%, transparent 4%) 30px 43px,
+		linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 30px 43px,
+		linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -70px 43px,
+		linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -70px 23px,
+		linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 30px 23px,
+		linear-gradient(324deg, #232927 4%, transparent 4%) -20px 93px,
+		linear-gradient( 36deg, #232927 4%, transparent 4%) 80px 93px,
+		linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 80px 93px,
+		linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -20px 93px,
+		linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -20px 73px,
+		linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 80px 73px;
+	background-color: #232927;
+	background-size: 100px 100px;
+}
+
+.dots-cube .cube-face {
+	background:
+		radial-gradient(circle at 100% 50%, #d2caab 16%, rgba(210,202,171,0) 17%),
+		radial-gradient(circle at 0% 50%, #364e27 16%, transparent 17%),
+		radial-gradient(circle at 100% 50%, #ebd88f 16%, rgba(210,202,171,0) 17%) 50px 50px,
+		radial-gradient(circle at 0% 50%, #293621 16%, transparent 17%) 50px 50px;
+	background-color: #63773f;
+	background-size: 100px 100px;
+}
+
+.hearts-cube .cube-face {
+	background:
+		radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+		radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+	background-color:#b03;
+	background-size:100px 100px;
+}
+
+.brady-cube .cube-face {
+	background-image:
+		radial-gradient(closest-side, transparent 0%, transparent 75%, #b6cc66 76%, #b6cc66 85%, #edffdb 86%, #edffdb 94%, #fff 95%, #fff 103%, #d9e6a7 104%, #d9e6a7 112%, #798b3c 113%, #798b3c 121%, #fff 122%, #fff 130%, #e0ead7 131%, #E0EAD7 140%),
+		radial-gradient(closest-side, transparent 0%, transparent 75%, #b6cc66 76%, #b6cc66 85%, #edffdb 86%, #edffdb 94%, #fff 95%, #fff 103%, #d9e6a7 104%, #d9e6a7 112%, #798b3c 113%, #798b3c 121%, #fff 122%, #fff 130%, #e0ead7 131%, #e0ead7 140%);
+	background-size: 100px 100px;
+	background-color: #c8d3a7;
+	background-position: 0 0, 50px 50px;
+}
+
+.shippo-cube .cube-face {
+	background-color:#def;
+	background-image:
+		radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+		radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+	background-size:100px 100px;
+	background-position:0 0, 50px 50px;
+}
+
+.seigaiha-cube .cube-face {
+	background-color:#c0c0c0;
+	background-image:
+		radial-gradient(circle at 100% 150%, #c0c0c0 24%, #fff 25%, #fff 28%, #c0c0c0 29%, #c0c0c0 36%, #fff 36%, #fff 40%, transparent 40%, transparent),
+		radial-gradient(circle at 0 150%, #c0c0c0 24%, #fff 25%, #fff 28%, #c0c0c0 29%, #c0c0c0 36%, #fff 36%, #fff 40%, transparent 40%, transparent),
+		radial-gradient(circle at 50%  100%, #fff 10%, #c0c0c0 11%, #c0c0c0 23%, #fff 24%, #fff 30%, #c0c0c0 31%, #c0c0c0 43%, #fff 44%, #fff 50%, #c0c0c0 51%, #c0c0c0 63%, #fff 64%, #fff 71%, transparent 71%, transparent),
+		radial-gradient(circle at 100% 50%, #fff 5%, #c0c0c0 6%, #c0c0c0 15%, #fff 16%, #fff 20%, #c0c0c0 21%, #c0c0c0 30%, #fff 31%, #fff 35%, #c0c0c0 36%, #c0c0c0 45%, #fff 46%, #fff 49%, transparent 50%, transparent),
+		radial-gradient(circle at 0 50%, #fff 5%, #c0c0c0 6%, #c0c0c0 15%, #fff 16%, #fff 20%, #c0c0c0 21%, #c0c0c0 30%, #fff 31%, #fff 35%, #c0c0c0 36%, #c0c0c0 45%, #fff 46%, #fff 49%, transparent 50%, transparent);
+	background-size:100px 50px;
+}
+
+.zig-zag-cube .cube-face {
+	background:
+		linear-gradient(135deg, #eceddc 25%, transparent 25%) -50px 0,
+		linear-gradient(225deg, #eceddc 25%, transparent 25%) -50px 0,
+		linear-gradient(315deg, #eceddc 25%, transparent 25%),
+		linear-gradient(45deg, #eceddc 25%, transparent 25%);
+	background-size: 100px 100px;
+	background-color: #1793ea;
+}
+
+.check-square-cube .cube-face {
+	background-color: #ff00dc;
+	background-image:
+		linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+		linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+	background-size:50px 50px;
+	background-position:0 0, 25px 25px
+}
+
+.check-diagonal-cube .cube-face {
+	background-color: #eee;
+	background-image:
+		linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+		linear-gradient(-45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+	background-size:50px 50px;
+}
+
+.houndstooth-cube .cube-face {
+	background:
+		linear-gradient(-45deg, #fff 25%, transparent 25%, transparent 75%, #000 75%, #000) 0 0,
+		linear-gradient(-45deg, #000 25%, transparent 25%, transparent 75%, #fff 75%, #fff) 1em 1em,
+		linear-gradient(45deg, #000 17%, transparent 17%, transparent 25%, #000 25%, #000 36%, transparent 36%, transparent 64%, #000 64%, #000 75%, transparent 75%, transparent 83%, #000 83%) 1em 1em;
+	background-color: #fff;
+	background-size: 20px 20px;
+}
+
+.blueprint-cube .cube-face {
+	background-color:#269;
+	background-image:
+		linear-gradient(#fff 2px, transparent 2px),
+		linear-gradient(90deg, #fff 2px, transparent 2px),
+		linear-gradient(rgba(255,255,255,.3) 1px, transparent 2px),
+		linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 2px);
+	background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+
+.spiral-cube .cube-face {
+	background: repeating-radial-gradient(circle,#111,#111 12px,#eee 12px, #eee 22px);
+}
+
+.mesh-cube .cube-face {
+  	background-image:
+		repeating-linear-gradient(45deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4) 1.5px, transparent 1.5px, transparent 15px),
+		repeating-linear-gradient(135deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4) 1.5px, transparent 1.5px, transparent 15px);
+	background-size: 20px 20px;
+}
+
+.emoji-cube .cube-face {
+	background:
+		radial-gradient(circle at 15% 52%, #000 0%, #000 -12%, #000 9%, transparent 1%, transparent) 25px 0,
+		radial-gradient(circle at 45% 52%, #000 0%, #000 12%, #080809 9%, transparent 3%, transparent) 25px 0,
+		radial-gradient(circle at 34% 61%, #ecec2d 37%, rgba(0, 0, 0, 0.52) 0%, #2c102e 13%, transparent 12%, transparent) 24px 0,
+		radial-gradient(circle at 45% 52%, #000 0%, #000 12%, #080809 9%, transparent 3%, transparent) 25px 0;
+	background-size: 100px 100px;
+}
+
+.streak-cube .cube-face {
+	background: linear-gradient(45deg, #008080 0%, #ffffff 25%, #05c1ff 50%, #ffffff 75%, #005757 100%);
+}
+
+/* Cube Rotation Animation */
+
+@keyframes rotateCube {
+    to {
+        transform: rotateX(-20deg) rotateY(-400deg);
+    }
+}
